@@ -14,15 +14,15 @@ if (!isParsedA || !isParsedB)
 
 Console.WriteLine(Degree(a, b));
 
-int Degree(int number, int degree)
+double Degree(int number, int degree)
 {
     if (degree == 0)
     {
         return 1;
     }
-    if (degree == 1)
+    if (degree < 0)
     {
-        return number;
+        return 1 / Degree(number, -degree);
     }
     degree--;
     return number * Degree(number, degree);
